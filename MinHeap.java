@@ -38,25 +38,25 @@ private void heap(int [] dizi, int i)
 int sol = sol(i);
 int sağ= sağ(i);
 int orta=orta(i);
-int azami = i; 
+int min = i; 
 
-if((sol <= n) && (dizi[sol] > dizi[azami]) ) 
-azami = sol;
+if((sol <= n) && (dizi[sol] < dizi[min]) ) 
+min = sol;
 
-if((orta<=n)&&(dizi[orta]>dizi[azami]))
-    azami=orta;
+if((orta<=n)&&(dizi[orta]<dizi[min]))
+    min=orta;
 
-if((sağ <= n) && (dizi[sağ] > dizi[azami]) ) 
-azami = sağ; 
+if((sağ <= n) && (dizi[sağ] < dizi[min]) ) 
+min = sağ; 
 
-if(azami != i) 
+if(min != i) 
 {
     
 int gecici = dizi[i];
-dizi[i] = dizi[azami];
-dizi[azami] = gecici;
+dizi[i] = dizi[min];
+dizi[min] = gecici;
 
-heap(dizi,azami);
+heap(dizi,min);
 }
 }
 
